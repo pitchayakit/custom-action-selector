@@ -2,15 +2,14 @@
     <div>
         <div
             v-if="actions.length > 0 || availablePivotActions.length > 0"
-            class="block md:flex md:custom_align_right  items-center"
+            class="items-center block pr-1 md:flex md:custom_align_right"
         >
                     <button
                         v-for="action in actions"
                         :key="action.uriKey"
                         @click.prevent="determineActionStrategy(action.uriKey)"
-                        class="btn md:mb-2 flex btn-default hover:bg-primary hover:text-white  btn-dark sm:flex-none lg:flex items-center justify-center px-3 ml-2 border-primary" >
-                        <span class="span-icon" v-html="action.icon"></span>
-                        <span class="text-xs  whitespace-no-wrap">{{ action.name }}</span>
+                        class="mx-1 btn btn-default btn-primary whitespace-nowrap" >
+                        {{ action.name }}
                     </button>
 
         </div>
@@ -287,6 +286,9 @@
     }
 </script>
 <style lang="scss">
+    .whitespace-nowrap {
+        white-space: nowrap;
+    }
     .span-icon {
         margin-right: .75rem;
         width: 1.25rem;
